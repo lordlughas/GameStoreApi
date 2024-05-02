@@ -1,0 +1,29 @@
+//GET http://localhost:5029/games
+
+//GET http://localhost:5029/games/6
+
+# POST http://localhost:5029/games
+# Content-Type: application/json
+
+# {
+#     "name": "BatMan",
+#     "genre": "Adventure",
+#     "price": 18.99,
+#     "releaseDate": "2017-10-03"
+# }
+
+
+
+//PUT http://localhost:5029/games/2
+# Content-Type: application/json
+
+# {
+#     "name": "Simpsons Street",
+#     "genre": "Kiddes",
+#     "price": 18.99,
+#     "updateDate": "2014-10-01"
+# }
+
+
+//DELETE 
+//DELETE http://localhost:5029/games/2
