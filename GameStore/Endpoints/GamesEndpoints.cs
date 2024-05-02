@@ -1,5 +1,6 @@
 namespace GameStore.Endpoints;
 using GameStore.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
 public static class GamesEndpoints
 {
@@ -59,11 +60,11 @@ public static class GamesEndpoints
              );
              games.Add(game);
 
-             return Results.CreatedAtRoute("GetGame", new { id = game.Id }, game);
+             return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
          });
 
 
-        //Update Game by Id
+        //Put Game by Id
         group.MapPut("/{id}", (int id, UpdateGameDto updateGame) =>
         {
             var index = games.FindIndex((game) => game.Id == id);

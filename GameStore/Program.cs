@@ -1,7 +1,10 @@
 using GameStore.Endpoints;
-
+using GameStoreApi;
 
 var builder = WebApplication.CreateBuilder(args);
+Startup.ConfigureServices(builder.Services);
+
+
 var app = builder.Build();
 
 app.MapGamesEndpoints();
