@@ -1,6 +1,5 @@
- using GameStore.Data;
+using GameStore.Data;
 using GameStore.Endpoints;
-using GameStoreApi.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +16,6 @@ var app = builder.Build();
 app.MapGamesEndpoints();
 
 app.MigrateDb();
-
 
 app.Run();
 

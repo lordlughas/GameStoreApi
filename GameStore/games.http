@@ -2,18 +2,18 @@
 
 //GET http://localhost:5029/games/6
 
-# POST http://localhost:5029/games
-# Content-Type: application/json
+POST http://localhost:5029/games
+Content-Type: application/json
 
-# {
-#     "name": "BatMan",
-#     "genre": "Adventure",
-#     "price": 18.99,
-#     "releaseDate": "2017-10-03"
-# }
+{
+    
+    "genre": "Adventure",
+    "price": 18.99,
+    "releaseDate": "2017-10-03"
+}
 
 
-
+//"name": "BatMan",
 //PUT http://localhost:5029/games/2
 # Content-Type: application/json
 
