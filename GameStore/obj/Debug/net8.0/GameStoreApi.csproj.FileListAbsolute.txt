@@ -123,15 +123,4 @@ c:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStoreA
 c:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStoreApi.sourcelink.json
 c:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStor.32FDE826.Up2Date
 =======
-C:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStoreApi.sourcelink.json
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\MinimalApi.Endpoint.dll
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStoreApi.csproj.AssemblyReference.cache
-C:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStoreApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\USER\Development\dotnet\GameStore\GameStore\obj\Debug\net8.0\GameStor.32FDE826.Up2Date
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\FluentValidation.dll
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\FluentValidation.AspNetCore.dll
-C:\Users\USER\Development\dotnet\GameStore\GameStore\bin\Debug\net8.0\FluentValidation.DependencyInjectionExtensions.dll
 >>>>>>> main

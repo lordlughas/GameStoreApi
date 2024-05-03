@@ -1,15 +1,15 @@
 //GET http://localhost:5029/games
 
-//GET http://localhost:5029/games/6
+//GET http://localhost:5029/games/2
 
 POST http://localhost:5029/games
 Content-Type: application/json
 
 {
-    
-    "genre": "Adventure",
-    "price": 18.99,
-    "releaseDate": "2017-10-03"
+    "name": "Simpsons Street",
+    "genreId": 2,
+    "price": 19.99,
+    "releaseDate": "2020-10-03"
 }
 
 

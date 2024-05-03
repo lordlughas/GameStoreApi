@@ -1,6 +1,8 @@
 namespace GameStore.Endpoints;
 using GameStore.Dtos;
+using GameStoreApi.Data;
 using Microsoft.AspNetCore.Mvc;
+using GameStore.Entities;
 
 public static class GamesEndpoints
 {
@@ -49,18 +51,39 @@ public static class GamesEndpoints
 
 
         //Post Game
-        group.MapPost("/", (CreateGameDto newGame) =>
+        group.MapPost("/", (CreateGameDto newGame, GameStoreContext dbContext) =>
          {
-             GameDto game = new(
-                 games.Count + 1,
-                 newGame.Name,
-                 newGame.Genre,
-                 newGame.Price,
-                 newGame.ReleaseDate
-             );
-             games.Add(game);
 
-             return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, game);
+             //using the db context to add games to the database
+             Game game = new(){
+                Name = newGame.Name,
+                Genre = dbContext.Genres.Find(newGame.GenreId),
+                GenreId = newGame.GenreId,
+                Price = newGame.Price,
+                ReleaseDate = newGame.ReleaseDate
+             };
+             dbContext.Games.Add(game);
+             dbContext.SaveChanges();
+
+            GameDto gameDto = new(
+                game.Id,
+                game.Name,
+                game.Genre!.Name,
+                game.Price,
+                game.ReleaseDate
+            );
+            // using the dummy data
+            //  GameDto game = new(
+            //      games.Count + 1,
+            //      newGame.Name,
+            //      newGame.Genre,
+            //      newGame.Price,
+            //      newGame.ReleaseDate
+            //  );
+            // games.Add(game);
+
+            //  return Results.CreatedAtRoute(GetGameEndpoi ntName, new { id = game.Id }, game);
+            return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, gameDto);
          });
 
 
@@ -83,6 +106,12 @@ public static class GamesEndpoints
 
             return Results.NoContent();
         });
+        // group.MapPut("/{id}", (int id, UpdateGameDto updateGame, GameStoreContext dbContext, Game game) => 
+        // {
+        //     var index = 
+        // });
+
+
 
         //Delete Game by Id
         group.MapDelete("/{id}", (int id) =>
