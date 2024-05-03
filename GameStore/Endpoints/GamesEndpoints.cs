@@ -3,6 +3,7 @@ using GameStore.Dtos;
 using GameStoreApi.Data;
 using Microsoft.AspNetCore.Mvc;
 using GameStore.Entities;
+using GameStoreApi.Mapping;
 
 public static class GamesEndpoints
 {
@@ -55,23 +56,29 @@ public static class GamesEndpoints
          {
 
              //using the db context to add games to the database
-             Game game = new(){
-                Name = newGame.Name,
-                Genre = dbContext.Genres.Find(newGame.GenreId),
-                GenreId = newGame.GenreId,
-                Price = newGame.Price,
-                ReleaseDate = newGame.ReleaseDate
-             };
+            //  Game game = new(){
+            //     Name = newGame.Name,
+            //     Genre = dbContext.Genres.Find(newGame.GenreId),
+            //     GenreId = newGame.GenreId,
+            //     Price = newGame.Price,
+            //     ReleaseDate = newGame.ReleaseDate
+            //  };
+             Game game = newGame.ToEntity();//abstracted the code above to this
+             game.Genre = dbContext.Genres.Find(newGame.GenreId);
+
+
              dbContext.Games.Add(game);
              dbContext.SaveChanges();
 
-            GameDto gameDto = new(
-                game.Id,
-                game.Name,
-                game.Genre!.Name,
-                game.Price,
-                game.ReleaseDate
-            );
+            // GameDto gameDto = new(
+            //     game.Id,
+            //     game.Name,
+            //     game.Genre!.Name,
+            //     game.Price,
+            //     game.ReleaseDate
+            // );
+
+
             // using the dummy data
             //  GameDto game = new(
             //      games.Count + 1,
@@ -83,7 +90,10 @@ public static class GamesEndpoints
             // games.Add(game);
 
             //  return Results.CreatedAtRoute(GetGameEndpoi ntName, new { id = game.Id }, game);
-            return Results.CreatedAtRoute(GetGameEndpointName, new { id = game.Id }, gameDto);
+            return Results.CreatedAtRoute(
+                GetGameEndpointName, 
+                new { id = game.Id },
+                game.ToDto());
          });
 
 
